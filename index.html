@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Produtos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Admin -->
+    <div id="adminLoginSection" class="login-container hidden">
+        <div class="login-box">
+            <h1>Acesso Administrativo</h1>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminPassword">Senha</label>
+                    <input type="password" id="adminPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Painel Admin -->
+    <div id="adminPanel" class="container hidden">
+        <h1>Painel Administrativo</h1>
+        <div class="admin-panel">
+            <h2>Adicionar Categoria</h2>
+            <form id="addCategoryForm">
+                <div class="form-group">
+                    <label for="categoryName">Nome da Categoria</label>
+                    <input type="text" id="categoryName" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar Categoria</button>
+            </form>
+        </div>
+        
+        <div class="admin-panel mt-20">
+            <h2>Adicionar Produto</h2>
+            <form id="addProductForm">
+                <div class="form-group">
+                    <label for="productCategory">Categoria</label>
+                    <select id="productCategory" class="form-control" required>
+                        <option value="">Selecione uma categoria</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productName">Nome do Produto</label>
+                    <input type="text" id="productName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Preço</label>
+                    <input type="number" id="productPrice" class="form-control" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="productImage">URL da Imagem</label>
+                    <input type="text" id="productImage" class="form-control" placeholder="https://exemplo.com/imagem.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="productStatus">Status</label>
+                    <select id="productStatus" class="form-control" required>
+                        <option value="available">Disponível</option>
+                        <option value="unavailable">Indisponível</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar Produto</button>
+            </form>
+        </div>
+        
+        <div class="admin-panel mt-20">
+            <h2>Produtos Cadastrados</h2>
+            <div id="adminProductsList"></div>
+        </div>
+        
+        <div class="text-center mt-20">
+            <button id="logoutAdmin" class="btn btn-secondary">Sair do Painel Admin</button>
+        </div>
+    </div>
+
+    <!-- Login Cliente -->
+    <div id="clientLoginSection" class="container">
+        <div class="client-login">
+            <div class="login-logo-container">
+                <img src="https://i.imgur.com/4edveQ2.jpeg" alt="Logo da Empresa" class="login-logo">
+            </div>
+            <h1>Bem-vindo ao Nosso Catálogo</h1>
+            <form id="clientLoginForm">
+                <div class="form-group">
+                    <label for="clientName">Seu Nome</label>
+                    <input type="text" id="clientName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">Seu Telefone</label>
+                    <input type="tel" id="clientPhone" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-center">Acessar Catálogo</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Catálogo de Produtos -->
+    <div id="productCatalog" class="container hidden">
+        <div class="catalog-header">
+            <h1>Bem vindo a Use Marieh</h1>
+            <button id="logoutClient" class="btn btn-secondary">Sair</button>
+        </div>
+        <div class="categories" id="categoriesList"></div>
+        <div class="products" id="productsList"></div>
+    </div>
+
+    <!-- Carrinho -->
+    <div class="cart" id="cart">
+        <div class="cart-header">
+            <div class="cart-title">Seu Pedido</div>
+            <button class="cart-close" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-total">Total: R$ <span id="cartTotal">0.00</span></div>
+        <button class="btn btn-primary" id="checkoutBtn" style="width: 100%; margin-top: 15px;">Enviar Pedido via WhatsApp</button>
+    </div>
+    
+    <div class="cart-btn" id="openCart">
+        <span>🛒</span>
+        <span class="cart-badge hidden" id="cartBadge">0</span>
+    </div>
+
+    <!-- Botão Admin -->
+    <div class="admin-btn hidden" id="adminAccess">
+        <span>🔒</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
